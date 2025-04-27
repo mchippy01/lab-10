@@ -1,0 +1,10 @@
+project: 
+  title: "Ess 330 Lab 10"
+  output-dir: docs
+  type: website
+format: 
+  html:
+    self-contained: true
+    resources:
+    - "**"
+    - "!/Users/chippymarx/Pictures/Photos Library.photoslibrary/**"
