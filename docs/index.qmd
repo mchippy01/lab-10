@@ -161,8 +161,6 @@ top5_farthest_us <- cities_with_distances %>%
 
 flextable(top5_farthest_us)
 
-
-flextable(top5_farthest_us)
 ```
 
 **2.2: Distances to state border**
@@ -182,8 +180,6 @@ top5_farthest_state <- cities_with_distances %>%
 flextable(top5_farthest_state)
 
 
-# 4. Show as flextable
-flextable(top5_farthest_state)
 ```
 
 **2.3: Distance to Mexico**
@@ -264,7 +260,8 @@ ggplot() +
     data = highlight_cities,
     aes(label = city, geometry = geometry),
     stat = "sf_coordinates",
-    size = 3
+    size = 3,
+    max.overlaps = 50
   ) +
   scale_color_viridis_c(name = "Distance from National Border (km)") +
   theme_minimal() +
@@ -408,7 +405,7 @@ ggplot(data = cities_with_distances) +
     size = 3
   ) +
   theme_minimal() +
-  ggtitle("Cities Within 100 Miles of U.S. National Border") +
+  ggtitle(" Most Populous Cities Within 100 Miles of U.S. National Border") +
   theme(plot.title = element_text(hjust = 0.5))
 
 ```
@@ -432,7 +429,8 @@ ggplot(data = cities_with_distances) +
     data = top_city_per_state_border,
     aes(label = paste0(city, ", ", state_name), geometry = geometry),
     stat = "sf_coordinates",
-    size = 3
+    size = 3,
+    max.overlaps = 50  
   ) +
   theme_minimal() +
   ggtitle("Most Populous City per State Within 100-Mile Border Zone") +
